@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+   
+
+    <%- include("../partials/cabecalho.ejs") %>
+    
+</head>
+<body>
+    <div>
+        <b>Matricula: </b> <%=aluno.matricula%>
+    </div>
+
+    <div>
+        <b>Nome: </b> <%=aluno.nome%>
+    </div>
+
+    <div>
+        <b>Curso: </b> <%=aluno.curso%>
+    </div>
+
+    <div>
+        <a href="/alunos">Voltar para a Listagem</a>
+    </div>
+
+    <%- include("../partials/rodape.ejs") %>
+    
+</body>
+</html>

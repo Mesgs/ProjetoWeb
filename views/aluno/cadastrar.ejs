@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <%- include("../partials/cabecalho.ejs") %>
+</head>
+<body>
+    <form action="/alunos" method="post">
+
+        <input type="hidden" name="_id" value="<%=aluno._id%>">
+        
+        <div>
+            <label class="form-label">Matricula</label>
+            <input value ="<%= aluno.matricula%>" type= "text" class="form-control" name= "matricula" required>
+        </div>
+
+        <div>
+            <label class="form-label">Nome</label>
+            <input value ="<%= aluno.nome%>" type= "text" class="form-control" name= "nome" required>
+        </div> 
+
+        <div>
+            <label class="form-label">Curso</label>
+            <input value ="<%= aluno.curso%>" type= "text" class="form-control" name= "curso" required>
+
+        </div>
+        
+        <div>
+            <input type="submit" value="Salvar" class="btn btn-sucess">
+        </div>
+
+        
+        </form>
+
+        <%- include("../partials/rodape.ejs") %>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+   
+
+    <%- include("../partials/cabecalho.ejs") %>
+    <style>
+        table{
+            width: 100%;
+            border: 1px solid black;
+            text-align: center;
+
+        }
+       
+    </style>
+</head>
+<body>
+    <%if(sucesso == "1"){%>
+        <div class="alert alert-success alert-dismissible">
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            Cadastrado com <b>sucesso.</b>
+            </div>
+
+    <% } %>
+
+    <%if(sucesso == "2"){%>
+        <div class="alert alert-danger alert-dismissible">
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                Removido com <b>sucesso.</b>
+            </div>
+
+    <% } %>
+
+    <%if(sucesso == "3"){%>
+        <div class="alert alert-warning alert-dismissible">
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                Atualizado com <b>sucesso.</b>
+            </div>
+
+    <% } %>
+
+    <table class="table table-striped">
+        <tr>
+            <th>Nome</th>
+            <th>Email</th>
+            <th>Detalhar</th>
+            <th>Remover</th>
+            <th>Editar</th>
+
+        </tr>
+        <% usuarios.forEach(usuario => { %>
+            <tr>
+                <td><%=usuario.nome%></td>
+                <td><%=usuario.email%></td>
+            <td>
+                <a href="/usuarios/<%=usuario._id%>">
+                <button type="button" class="btn btn-danger">Detalhar</button>
+                </a>
+            </td>
+                
+            <td>
+                <a href="/usuarios/remover/<%=usuario._id%>">
+                <button onclick="return confirm('Deseja excluir?')" type="button" class="btn btn-danger">Remover</button>
+                </a>
+            </td>
+
+            <td>
+                <a href="/usuarios/cadastrar/<%=usuario._id%>">
+                <button type="button" class="btn btn-warning">Editar</button>
+                </a>
+            </td>
+
+            </tr>
+            <% }) %>
+    </table>
+
+    <%- include("../partials/rodape.ejs") %>
+    
+</body>
+</html>

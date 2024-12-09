@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <%- include("../partials/cabecalhosemmenu.ejs") %>
+</head>
+<body>
+    <div>
+        <%if(sucesso == "1"){%>
+            <div class="alert alert-danger alert-dismissible">
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+               E-mail já em uso!
+                </div>
+    
+        <% } %>
+    
+    <form action="/usuarios" method="post">
+
+        <input type="hidden" name="_id" value="<%=usuario._id%>">
+
+        
+        <div>
+            <label class="form-label">Nome</label>
+            <input value ="<%= usuario.nome%>" type= "text" class="form-control" name= "nome" required>
+        </div>
+
+        <div>
+            <label class="form-label">Email</label>
+            <input value ="<%= usuario.email%>" type= "text" class="form-control" name= "email" required>
+        </div> 
+
+        <div>
+            <label class="form-label">Senha</label>
+            <input value ="<%= usuario.senha%>" type= "text" class="form-control" name= "senha" required>
+
+        </div>
+        
+        <div>
+            <input type="submit" value="Salvar" class="btn btn-sucess">
+        </div>
+
+        
+        </form>
+        <a href="/usuarios/login">Já possui conta?</a>
+    </div>
+        <%- include("../partials/rodape.ejs") %>
+</body>
+</html>
